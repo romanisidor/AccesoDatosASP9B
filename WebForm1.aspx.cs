@@ -101,7 +101,7 @@ namespace WebAplicacionConexiconSQL
             if (cnab != null)
             {
                 this.ClientScript.RegisterStartupScript(this.GetType(),
-                    "msg123", "verAlerta('Correcto', '" + m + "', 'success')", true);
+                    "msg123", "verAlerta(`Correcto`, `" + m + "`, `success`)", true);
 
                 contenedor = objacc.ConsultaDS("select * from EMPLEADO", cnab, ref m);
 
@@ -141,6 +141,41 @@ namespace WebAplicacionConexiconSQL
             foreach (DataRow registro in temp.Tables[0].Rows)
             {
                 ListBox1.Items.Add(registro[0] + " -- " + registro[1]);
+            }
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            //Declaración de parametros 
+            SqlParameter first = new SqlParameter("id", SqlDbType.Int);
+            SqlParameter second = new SqlParameter("nombre", SqlDbType.NVarChar, 50);
+
+            //Dando valores a los parámetros
+            first.Value = txtId.Text;
+            second.Value = txtNombre.Text;
+
+            //Establecer la dirección de los parámetros
+            first.Direction = ParameterDirection.Input;
+            second.Direction = ParameterDirection.Input;
+
+            string sentencia = "Insert Into empleado values(@id, @nombre);";
+            SqlConnection conexion = null;
+            string mensaje = "";
+            Boolean resp = false;
+            conexion = objacc.AbrirConexion(ref mensaje);
+
+            resp = objacc.ModificaBDinsegura(sentencia, conexion, ref mensaje);
+
+            if (resp)
+            {
+
+                this.ClientScript.RegisterStartupScript(this.GetType(),
+                   "msgModificacion", "verAlerta(`Correcto`, `" + mensaje + "`, `success`)", true);
+            }
+            else
+            {
+                this.ClientScript.RegisterStartupScript(this.GetType(),
+                    "msgModificacion", "verAlerta(`Error`, `" + mensaje + "`, `error`)", true);
             }
         }
     }
