@@ -73,6 +73,7 @@
         <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Insertar productos" />
         <br />
         <br />
+        <asp:Button ID="Button8" runat="server" Text="Button" />
         <br />
     </form>
 </body>
