@@ -51,6 +51,29 @@
         <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Insertar datos" Width="790px" />
         <br />
         <br />
+        <br />
+        <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Inserción insegura" Width="794px" />
+        <br />
+        <br />
+        id_Producto:
+        <asp:TextBox ID="txtIdProd" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Descripcion:
+        <asp:TextBox ID="txtDesc" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Categoria:
+        <asp:TextBox ID="TxtCat" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Precio:&nbsp;
+        <asp:TextBox ID="txtPrec" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Insertar productos" />
+        <br />
+        <br />
+        <br />
     </form>
 </body>
 </html>
